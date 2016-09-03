@@ -1,12 +1,26 @@
+import './shared/rxjs-extensions';
+
 import { NgModule, ApplicationRef } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ApiService } from './shared';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+// import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+// import { HeroesComponent } from './heroes/heroes.component';
+// import { HeroSearchComponent } from './hero-search/hero-search.component';
+
+import {
+  ApiService,
+  HeroService,
+  HeroSearchService,
+  InMemoryDataService } from './shared';
+
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -16,23 +30,33 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     BrowserModule,
     HttpModule,
     FormsModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     routing
   ],
   declarations: [
     AppComponent,
-    HomeComponent,
-    AboutComponent
+    DashboardComponent,
+    MainNavComponent,
+    // HeroDetailComponent,
+    // HeroesComponent,
+    // HeroSearchComponent
   ],
   providers: [
-    ApiService
+    ApiService,
+    HeroService,
+    HeroSearchService,
+    Title
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
   constructor(public appRef: ApplicationRef) {}
+
   hmrOnInit(store) {
     console.log('HMR store', store);
   }
+
   hmrOnDestroy(store) {
     let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
     // recreate elements
@@ -40,6 +64,7 @@ export class AppModule {
     // remove styles
     removeNgStyles();
   }
+
   hmrAfterDestroy(store) {
     // display new elements
     store.disposeOldHosts();

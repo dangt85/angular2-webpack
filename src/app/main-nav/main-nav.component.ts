@@ -6,4 +6,13 @@ import { Title }     from '@angular/platform-browser';
   templateUrl: 'main-nav.component.html',
   styleUrls: ['main-nav.component.sass']
 })
-export class MainNavComponent {}
+export class MainNavComponent {
+
+  constructor(private titleService: Title) {
+    titleService.setTitle('Dashboard');
+  }
+
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
+}

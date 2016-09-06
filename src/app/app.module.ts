@@ -18,6 +18,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import {
   ApiService,
   HeroService,
+  MenuService,
   HeroSearchService,
   InMemoryDataService } from './shared';
 
@@ -44,6 +45,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   providers: [
     ApiService,
     HeroService,
+    MenuService,
     HeroSearchService,
     Title
   ],

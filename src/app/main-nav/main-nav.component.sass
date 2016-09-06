@@ -39,12 +39,17 @@ nav.mega-menu
     color: #000
     text-align: center
     font-weight: bold
+    background-color: $color2
 
     &:hover
-      opacity: .8
+      opacity: .5
 
   > .dropdown
     flex: 1 1 auto
+
+    &:last-child .dropside-content
+      right: 100%
+      left: auto
 
   > .dropdown, .dropside
     position: relative
@@ -52,7 +57,7 @@ nav.mega-menu
     &:hover > .dropdown-content, &:hover > .dropside-content
       display: block
 
-    > .dropdown-content
+    > .dropdown-content, > .dropside-content
       display: none
       position: absolute
       background-color: $color2
@@ -60,9 +65,6 @@ nav.mega-menu
       z-index: 1
 
     > .dropside-content
-      display: none
-      position: absolute
       top: 0
       left: 100%
-      background-color: $color2
       z-index: 2

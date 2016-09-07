@@ -1,4 +1,4 @@
-<nav class="app-menu">
+<nav class="app-menu" role="navigation">
   <div class="main-items">
     <a (click)="setTitle('Dashboard')" routerLink="/dashboard" routerLinkActive="active" aria-label="Dashboard">
       <i class="fa fa-dashboard fa-lg" aria-hidden="true"></i>
@@ -15,7 +15,7 @@
   </div>
 </nav>
 
-<nav class="mega-menu">
+<nav class="mega-menu" role="navigation">
   <div class="dropdown" *ngFor="let item of menuItems">
     <a href="#">{{ item.label }}</a>
     <div class="dropdown-content">

@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 // import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-// import { HeroesComponent } from './heroes/heroes.component';
+import { HeroesComponent } from './heroes/heroes.component';
 // import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 import {
@@ -39,7 +39,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     DashboardComponent,
     MainNavComponent,
     // HeroDetailComponent,
-    // HeroesComponent,
+    HeroesComponent,
     // HeroSearchComponent
   ],
   providers: [
